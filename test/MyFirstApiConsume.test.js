@@ -8,8 +8,6 @@ const url='https://httpbin.org/';
 
 describe('First Api Tests', () => {
 
-
-
     it('Consume GET Service', async () => {
         const response = await agent.get(url+'ip');
       
