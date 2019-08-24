@@ -16,7 +16,6 @@ describe('First Api Tests', () => {
       });
 
 
-
       it('Consume GET Service with query parameters', async () => {
         const reqBody = {
           name: 'John',
@@ -41,8 +40,6 @@ describe('First Api Tests', () => {
 
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(reqBody);
-
-
       });
 
 
