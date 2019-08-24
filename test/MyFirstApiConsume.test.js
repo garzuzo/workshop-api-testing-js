@@ -4,12 +4,14 @@ const chai = require('chai');
 
 const expect = chai.expect;
 
+const url='https://httpbin.org/';
+
 describe('First Api Tests', () => {
 
 
 
     it('Consume GET Service', async () => {
-        const response = await agent.get('https://httpbin.org/ip');
+        const response = await agent.get(url+'ip');
       
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body).to.have.property('origin');
@@ -24,7 +26,7 @@ describe('First Api Tests', () => {
           city: 'New York'
         };
       
-        const response = await agent.get('https://httpbin.org/get').query(reqBody);
+        const response = await agent.get(url+'get').query(reqBody);
       
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(reqBody);
@@ -37,7 +39,7 @@ describe('First Api Tests', () => {
 
         };
 
-        const response = await agent.post('https://httpbin.org/post').query(reqBody);
+        const response = await agent.post(url+'post').query(reqBody);
 
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(reqBody);
@@ -52,7 +54,7 @@ describe('First Api Tests', () => {
             username: 'garzuzo'
         };
 
-        const response = await agent.head('https://httpbin.org/get').query(reqBody);
+        const response = await agent.head(url+'get').query(reqBody);
         expect(response.status).to.equal(statusCode.OK);
     
 
@@ -66,7 +68,7 @@ describe('First Api Tests', () => {
 username:"jgarzon"
         };
 
-        const response = await agent.patch('https://httpbin.org/patch').query(reqBody);
+        const response = await agent.patch(url+'patch').query(reqBody);
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(reqBody);
 
@@ -79,7 +81,7 @@ username:"jgarzon"
             username:"JohnatanG"
         };
 
-        const response = await agent.put('https://httpbin.org/put').query(reqBody);
+        const response = await agent.put(url+'put').query(reqBody);
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(reqBody);
 
@@ -93,7 +95,7 @@ username:"jgarzon"
 username:"garzuzo"
         };
 
-        const response = await agent.delete('https://httpbin.org/delete').query(reqBody);
+        const response = await agent.delete(url+'delete').query(reqBody);
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body.args).to.eql(reqBody);
 
