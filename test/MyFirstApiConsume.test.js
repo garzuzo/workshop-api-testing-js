@@ -1,7 +1,6 @@
 const agent = require('superagent');
 const statusCode = require('http-status-codes');
 const chai = require('chai');
-
 const expect = chai.expect;
 
 const url='https://httpbin.org/';
@@ -14,7 +13,6 @@ describe('First Api Tests', () => {
         expect(response.status).to.equal(statusCode.OK);
         expect(response.body).to.have.property('origin');
       });
-
 
       it('Consume GET Service with query parameters', async () => {
         const reqBody = {
@@ -56,7 +54,6 @@ describe('First Api Tests', () => {
       });
 
 
-
       it('Consume PATCH Service with query params', async ()=>{
 
         const reqBody={
@@ -83,7 +80,6 @@ username:"jgarzon"
       });
 
 
-
       it('Consume DELETE Service with query params', async ()=>{
 
         const reqBody={
@@ -95,10 +91,6 @@ username:"garzuzo"
         expect(response.body.args).to.eql(reqBody);
 
       });   
-
-
-
-
 });
 
 
