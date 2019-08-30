@@ -34,20 +34,17 @@ describe('First Api Tests', () => {
 
     };
 
-    const response = await agent.post(`${url}post`).query(reqBody);
+    const response = await agent.post(`${url}post`).send(reqBody);
 
     expect(response.status).to.equal(statusCode.OK);
-    expect(response.body.args).to.eql(reqBody);
+    expect(response.body.json).to.eql(reqBody);
   });
 
 
   it('Consume HEAD Service with query params', async () => {
-    const reqBody = {
-      username: 'garzuzo'
-    };
-
-    const response = await agent.head(`${url}get`).query(reqBody);
+    const response = await agent.head(`${url}get`);
     expect(response.status).to.equal(statusCode.OK);
+    expect(response.body).to.be.empty;
   });
 
 
@@ -56,9 +53,9 @@ describe('First Api Tests', () => {
       username: 'jgarzon'
     };
 
-    const response = await agent.patch(`${url}patch`).query(reqBody);
+    const response = await agent.patch(`${url}patch`).send(reqBody);
     expect(response.status).to.equal(statusCode.OK);
-    expect(response.body.args).to.eql(reqBody);
+    expect(response.body.json).to.eql(reqBody);
   });
 
 
@@ -67,9 +64,9 @@ describe('First Api Tests', () => {
       username: 'JohnatanG'
     };
 
-    const response = await agent.put(`${url}put`).query(reqBody);
+    const response = await agent.put(`${url}put`).send(reqBody);
     expect(response.status).to.equal(statusCode.OK);
-    expect(response.body.args).to.eql(reqBody);
+    expect(response.body.json).to.eql(reqBody);
   });
 
 
@@ -78,8 +75,8 @@ describe('First Api Tests', () => {
       username: 'garzuzo'
     };
 
-    const response = await agent.delete(`${url}delete`).query(reqBody);
+    const response = await agent.delete(`${url}delete`).send(reqBody);
     expect(response.status).to.equal(statusCode.OK);
-    expect(response.body.args).to.eql(reqBody);
+    expect(response.body.json).to.eql(reqBody);
   });
 });
